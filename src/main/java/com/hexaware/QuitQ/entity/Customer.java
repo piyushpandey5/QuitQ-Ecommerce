@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,7 +27,10 @@ public class Customer {
 	private String emailId;
 	private String firstName;
 	private String lastName;
+	
+	@Column(unique = true)
 	private String mobileNo;
+	
 	private String password;
 	private LocalDateTime createdOn;
 	
@@ -36,17 +41,18 @@ public class Customer {
 				inverseJoinColumns = {
 						@JoinColumn(name = "address_id", referencedColumnName = "addressId")
 				})
+
 	private Map<String, Address> address = new HashMap<>();
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
 	private List<Order> orders = new ArrayList<>();
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private Cart customerCart;
 
 	public Customer() {
 		super();
-		// TODO Auto-generated constructor stub
+		this.createdOn = LocalDateTime.now();
 	}
 	
 	public Customer(long customerId, String emailId, String firstName, String lastName, String mobileNo,
@@ -97,12 +103,12 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	public String getmobileNo() {
-		return mobileNo;
+	public String getMobileNo() {
+	    return mobileNo;
 	}
 
-	public void setmobileNo(String mobileNo) {
-		this.mobileNo = mobileNo;
+	public void setMobileNo(String mobileNo) {
+	    this.mobileNo = mobileNo;
 	}
 
 	public String getPassword() {

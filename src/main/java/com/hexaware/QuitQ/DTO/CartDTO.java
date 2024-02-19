@@ -1,4 +1,4 @@
-package com.hexaware.QuitQ.entity;
+package com.hexaware.QuitQ.DTO;
 
 public class CartDTO {
 
