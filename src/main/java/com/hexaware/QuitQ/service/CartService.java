@@ -7,6 +7,7 @@ import com.hexaware.QuitQ.entity.Cart;
 import com.hexaware.QuitQ.entity.CartItem;
 
 public interface CartService {
+	
 	public Cart addProductToCart(CartDTO cartdto, String token);
 
 	public List<CartItem>  getCartProduct(String token);

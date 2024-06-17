@@ -113,7 +113,7 @@ public class SellerServiceImpl implements SellerService{
 		Seller existingSeller = opt.get();
 			
 			
-		if(sellerDTO.getMobile().equals(existingSeller.getMobileNo()) == false) {
+		if(sellerDTO.getMobileNo().equals(existingSeller.getMobileNo()) == false) {
 			throw new SellerException("Verification error. Mobile number does not match");
 		}
 			
@@ -160,7 +160,7 @@ public class SellerServiceImpl implements SellerService{
 		Seller existingSeller=sellerDao.findById((int)user.getUserId()).orElseThrow(()->new SellerException("Seller not found for this ID: "+ user.getUserId()));
 		
 		if(existingSeller.getPassword().equals(sellerdto.getPassword())) {
-			existingSeller.setMobileNo(sellerdto.getMobile());
+			existingSeller.setMobileNo(sellerdto.getMobileNo());
 			return sellerDao.save(existingSeller);
 		}
 		else {

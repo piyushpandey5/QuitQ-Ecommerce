@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,15 +21,11 @@ import com.hexaware.QuitQ.repository.CustomerDao;
 import com.hexaware.QuitQ.service.CartService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class CartController {
 	@Autowired
 	private CartService cartService;
 	
-	@Autowired
-	private CartDao cartDao;
-	
-	@Autowired
-	private CustomerDao customerDao;
 	
 	@PostMapping(value = "/cart/add")
 	public ResponseEntity<Cart> addProductToCartHander(@RequestBody CartDTO cartdto ,@RequestHeader("token")String token){
@@ -42,8 +39,7 @@ public class CartController {
 		return new ResponseEntity<>(cartService.getCartProduct(token), HttpStatus.ACCEPTED);
 	}
 	@DeleteMapping(value = "/cart")
-	public ResponseEntity<Cart> removeProductFromCartHander(@RequestBody CartDTO cartdto ,@RequestHeader("token")String token){
-		
+	public ResponseEntity<Cart> removeProductFromCartHander(@RequestBody CartDTO cartdto ,@RequestHeader("token")String token){		
 		Cart cart = cartService.removeProductFromCart(cartdto, token);
 		return new ResponseEntity<Cart>(cart,HttpStatus.OK);
 	}
@@ -51,5 +47,6 @@ public class CartController {
 	public ResponseEntity<Cart> clearCartHandler(@RequestHeader("token") String token){
 		return new ResponseEntity<>(cartService.clearCart(token), HttpStatus.ACCEPTED);
 	}
+	
 	
 }

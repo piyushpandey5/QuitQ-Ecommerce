@@ -89,4 +89,16 @@ public class ProductServiceImpl implements ProductService {
 		}
 		else throw new ProductNotFoundException("No Product with the given status" + state);
 	}
+	
+	@Override
+	public Product addProductWithSeller(Product product, int sellerId) {
+	    Optional<Seller> sellerOpt = sellerDao.findById(sellerId);
+	    if (sellerOpt.isPresent()) {
+	        Seller seller = sellerOpt.get();
+	        product.setSeller(seller);
+	        return productDao.save(product);
+	    } else {
+	    	throw new ProductNotFoundException("Product not found with given id");
+	    }
+	}
 }

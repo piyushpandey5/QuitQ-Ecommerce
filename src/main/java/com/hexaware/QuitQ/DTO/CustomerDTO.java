@@ -1,49 +1,44 @@
 package com.hexaware.QuitQ.DTO;
 
-import jakarta.persistence.Entity;
 
 public class CustomerDTO {
 	
-	private String mobileId;
+	private String mobileNo;
 	private String password;
-	private String emailId;
-
+	private String email;
+	public CustomerDTO(String mobileNo, String password, String email) {
+		super();
+		this.mobileNo = mobileNo;
+		this.password = password;
+		this.email = email;
+	}
 	public CustomerDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	
-	public CustomerDTO(String mobileId, String password, String emailId) {
-		super();
-		this.mobileId = mobileId;
-		this.password = password;
-		this.emailId = emailId;
+	public String getMobileNo() {
+		return mobileNo;
 	}
-
-
-	public String getMobileId() {
-		return mobileId;
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
 	}
-
-	public void setMobileId(String mobileId) {
-		this.mobileId = mobileId;
-	}
-
 	public String getPassword() {
 		return password;
 	}
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getEmailId() {
-		return emailId;
+	public String getemail() {
+		return email;
+	}
+	public void setemail(String email) {
+		this.email = email;
+	}
+	@Override
+	public String toString() {
+		return "CustomerDTO [mobileNo=" + mobileNo + ", password=" + password + ", email=" + email + "]";
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
 	
 }

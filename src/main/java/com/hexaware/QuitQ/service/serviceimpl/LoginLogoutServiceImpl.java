@@ -41,13 +41,20 @@ public class LoginLogoutServiceImpl implements LoginLogoutService{
 	@Override
 	public UserSession loginCustomer(CustomerDTO loginCustomer) {
 		
-		Optional<Customer> res = customerDao.findByMobileNo(loginCustomer.getMobileId());
+		Optional<Customer> res = customerDao.findByMobileNo(loginCustomer.getMobileNo());
 		
-		if(res.isEmpty())
-			throw new CustomerNotFoundException("Customer record does not exist with given mobile number");
+		if(res.isEmpty()) {
+			res = customerDao.findByEmail(loginCustomer.getemail());
+			if(res.isEmpty())
+				throw new CustomerNotFoundException("Customer record does not exist with given mobile number or email");
+			
+		}
 		
 		Customer existingCustomer = res.get();
 		
+		
+		//if existing customer exist in the database then check if user is present in the user Session or not which means if user is
+		//already logged in or not
 		Optional<UserSession> opt = sessionDao.findByUserId(existingCustomer.getCustomerId());
 		
 		if(opt.isPresent()) {
@@ -111,12 +118,16 @@ public class LoginLogoutServiceImpl implements LoginLogoutService{
 	
 		@Override
 		public UserSession loginSeller(SellerDTO seller) {
+
+			System.out.print("Emails is ******* " +seller.getMobileNo());
+			Optional<Seller> res = sellerDao.findByMobileNo(seller.getMobileNo());
 			
-			Optional<Seller> res = sellerDao.findByMobileNo(seller.getMobile());
-			
-			if(res.isEmpty())
-				throw new SellerNotFoundException("Seller record does not exist with given mobile number");
-			
+			if(res.isEmpty()) {
+				res = sellerDao.findByEmail(seller.getEmail());
+				if(res.isEmpty())
+					throw new SellerNotFoundException("Seller record does not exist with given mobile number");
+			}
+				
 			Seller existingSeller = res.get();
 			
 			Optional<UserSession> opt = sessionDao.findByUserId(existingSeller.getSellerId());
@@ -132,6 +143,8 @@ public class LoginLogoutServiceImpl implements LoginLogoutService{
 					throw new LoginException("User already logged in");
 				
 			}
+			
+
 			
 			
 			if(existingSeller.getPassword().equals(seller.getPassword())) {

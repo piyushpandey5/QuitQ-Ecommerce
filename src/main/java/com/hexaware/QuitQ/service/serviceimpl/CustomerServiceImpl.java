@@ -125,7 +125,7 @@ public class CustomerServiceImpl implements  CustomerService{
 		
 		Optional<Customer> opt = customerDao.findByMobileNo(customer.getMobileNo());
 		
-		Optional<Customer> res = customerDao.findByEmailId(customer.getEmailId());
+		Optional<Customer> res = customerDao.findByEmail(customer.getEmailId());
 		
 
 		if(opt.isEmpty() && res.isEmpty())
@@ -151,7 +151,7 @@ public class CustomerServiceImpl implements  CustomerService{
 			}
 			
 			if(customer.getEmailId() != null) {
-				existingCustomer.setEmailId(customer.getEmailId());
+				existingCustomer.setEmail(customer.getEmailId());
 			}
 			
 			if(customer.getMobileNo() != null) {
@@ -198,7 +198,7 @@ public class CustomerServiceImpl implements  CustomerService{
 		Customer existingCustomer = opt.get();
 		
 		if(customerUpdateDTO.getEmailId() != null) {
-			existingCustomer.setEmailId(customerUpdateDTO.getEmailId());
+			existingCustomer.setEmail(customerUpdateDTO.getEmailId());
 		}
 		
 		
@@ -233,7 +233,7 @@ public class CustomerServiceImpl implements  CustomerService{
 		Customer existingCustomer = opt.get();
 		
 		
-		if(customerDTO.getMobileId().equals(existingCustomer.getMobileNo()) == false) {
+		if(customerDTO.getMobileNo().equals(existingCustomer.getMobileNo()) == false) {
 			throw new CustomerException("Verification error. Mobile number does not match");
 		}
 		
@@ -261,6 +261,7 @@ public class CustomerServiceImpl implements  CustomerService{
 		if(token.contains("customer") == false) {
 			throw new LoginException("Invalid session token for customer");
 		}
+		
 			
 		loginService.checkTokenStatus(token);
 		

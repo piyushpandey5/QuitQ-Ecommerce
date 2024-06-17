@@ -1,0 +1,10 @@
+.ordered-text {
+    font-family: 'Arial', sans-serif; /* Choose your desired font */
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #333; /* Adjust text color */
+  }
+  
+  .ordered-text li {
+    margin-bottom: 10px; /* Adjust margin between each ordered item */
+  }
+  

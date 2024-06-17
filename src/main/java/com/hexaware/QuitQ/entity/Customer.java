@@ -24,7 +24,7 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long customerId;
-	private String emailId;
+	private String email;
 	private String firstName;
 	private String lastName;
 	
@@ -55,12 +55,12 @@ public class Customer {
 		this.createdOn = LocalDateTime.now();
 	}
 	
-	public Customer(long customerId, String emailId, String firstName, String lastName, String mobileNo,
+	public Customer(long customerId, String email, String firstName, String lastName, String mobileNo,
 			String password, LocalDateTime createdOn, Map<String, Address> address, List<Order> orders,
 			Cart customerCart) {
 		super();
 		this.customerId = customerId;
-		this.emailId = emailId;
+		this.email = email;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.mobileNo = mobileNo;
@@ -79,12 +79,12 @@ public class Customer {
 		this.customerId = customerId;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getFirstName() {
@@ -153,7 +153,7 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [customerId=" + customerId + ", emailId=" + emailId + ", firstName=" + firstName
+		return "Customer [customerId=" + customerId + ", email=" + email + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", mobileNo=" + mobileNo + ", password=" + password + ", createdOn="
 				+ createdOn + ", address=" + address + ", orders=" + orders + ", customerCart=" + customerCart + "]";
 	}

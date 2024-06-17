@@ -1,0 +1,5 @@
+# Created at 2024-03-21T23:26:01.419
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Learnspace\JAVA REACT TRAINING\JAVA\QuitQ-Ecomm\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+

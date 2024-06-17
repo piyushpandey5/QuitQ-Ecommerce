@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hexaware.QuitQ.entity.CategoryEnum;
@@ -21,6 +23,8 @@ import com.hexaware.QuitQ.exception.ProductNotFoundException;
 import com.hexaware.QuitQ.service.ProductService;
 
 @RestController
+
+@CrossOrigin("http://localhost:3000")
 public class ProductController {
 	
 
@@ -86,5 +90,13 @@ public class ProductController {
 		List<Product> list= pService.getProductsOfStatus(state);
 		return new ResponseEntity<List<Product>>(list,HttpStatus.OK);
 	}
+	
+	
+	@PostMapping("/product/{sellerId}")
+	public ResponseEntity<Product> addProductWithSellerHandler(@RequestBody Product product, @PathVariable("sellerId") int sellerId) {
+	    Product addedProduct = pService.addProductWithSeller(product, sellerId);
+	    return new ResponseEntity<>(addedProduct, HttpStatus.CREATED);
+	}
+
 	
 }

@@ -11,5 +11,6 @@ import com.hexaware.QuitQ.entity.Seller;
 @Repository
 public interface SellerDao extends JpaRepository<Seller, Integer> {
 	Optional<Seller> findByMobileNo(String mobile);
+	Optional<Seller> findByEmail(String email);
 	
 }

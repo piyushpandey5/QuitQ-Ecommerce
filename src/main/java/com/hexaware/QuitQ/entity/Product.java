@@ -17,6 +17,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long productId;
 	private String productName;
+	private String ImageUrl;
 	private double price;
 	private String description;
 	private Integer quantity;
@@ -25,7 +26,7 @@ public class Product {
 	@Enumerated(EnumType.STRING)
 	private ProductStatus status;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "seller_id")
 	private Seller seller;
 
@@ -35,7 +36,7 @@ public class Product {
 	}
 
 	public Product(long productId, String productName, double price, String description, Integer quantity,
-			CategoryEnum category, ProductStatus status, Seller seller) {
+			CategoryEnum category, ProductStatus status, Seller seller, String ImageUrl) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
@@ -45,6 +46,7 @@ public class Product {
 		this.category = category;
 		this.status = status;
 		this.seller = seller;
+		this.ImageUrl = ImageUrl;
 	}
 
 	public long getProductId() {
@@ -109,6 +111,15 @@ public class Product {
 
 	public void setSeller(Seller seller) {
 		this.seller = seller;
+	}
+
+
+	public String getImageUrl() {
+		return ImageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		ImageUrl = imageUrl;
 	}
 
 	@Override

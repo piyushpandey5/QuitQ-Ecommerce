@@ -10,7 +10,7 @@ import com.hexaware.QuitQ.entity.Customer;
 public interface CustomerDao extends JpaRepository<Customer,Integer>{
 
 	Optional<Customer> findByMobileNo(String mobileNo);
-	Optional<Customer> findByEmailId(String emailId);
+	Optional<Customer> findByEmail(String email);
 
 
 }

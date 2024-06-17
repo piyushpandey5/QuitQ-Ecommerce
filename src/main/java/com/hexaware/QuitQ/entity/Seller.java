@@ -19,7 +19,7 @@ public class Seller {
 	private String firstName;
 	private String lastName;
 	private String password;
-	private String emailId;
+	private String email;
 	
 	@Column(nullable = false)
 	private String mobileNo;
@@ -32,14 +32,14 @@ public class Seller {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Seller(long sellerId, String firstName, String lastName, String password, String emailId, String mobileNo,
+	public Seller(long sellerId, String firstName, String lastName, String password, String email, String mobileNo,
 			List<Product> products) {
 		super();
 		this.sellerId = sellerId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.password = password;
-		this.emailId = emailId;
+		this.email = email;
 		this.mobileNo = mobileNo;
 		this.products = products;
 	}
@@ -76,12 +76,12 @@ public class Seller {
 		this.password = password;
 	}
 
-	public String getEmailId() {
-		return emailId;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getMobileNo() {
@@ -103,7 +103,7 @@ public class Seller {
 	@Override
 	public String toString() {
 		return "Seller [sellerId=" + sellerId + ", firstName=" + firstName + ", lastName=" + lastName + ", password="
-				+ password + ", emailId=" + emailId + ", mobileNo=" + mobileNo + ", products=" + products + "]";
+				+ password + ", emailId=" + email + ", mobileNo=" + mobileNo + ", products=" + products + "]";
 	}
 	
 

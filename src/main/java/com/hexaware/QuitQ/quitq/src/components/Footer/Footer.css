@@ -1,0 +1,31 @@
+.footer-wrapper {
+  padding: 30px 100px; /* Decreased padding */
+  height: auto; /* Adjusted height to fit content */
+  background-color: #333; /* Changed background color */
+  display: flex; /* Used flexbox for better alignment */
+  flex-direction: column; /* Arranged content in a column */
+  align-items: center; /* Centered content horizontally */
+  justify-content: center; /* Centered content vertically */
+}
+
+.footer-wrapper .ant-typography {
+  color: #fff; /* Changed text color to white */
+}
+
+.footer-wrapper .mt-12 {
+  margin-top: 16px;
+}
+
+.footer-wrapper a {
+  margin-right: 15px;
+  color: #fff;
+  font-size: 24px; /* Decreased font size */
+}
+
+.footer-wrapper-social {
+  margin-top: 20px; /* Added margin to separate social icons */
+}
+
+.footer-wrapper-copyright {
+  margin-top: 20px; /* Adjusted margin */
+}

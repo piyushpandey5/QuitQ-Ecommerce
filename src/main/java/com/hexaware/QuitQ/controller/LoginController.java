@@ -3,6 +3,7 @@ package com.hexaware.QuitQ.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,7 @@ import com.hexaware.QuitQ.service.LoginLogoutService;
 import com.hexaware.QuitQ.service.SellerService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
 	@Autowired
 	private CustomerService customerService;
@@ -56,6 +58,7 @@ public class LoginController {
 	public ResponseEntity<Seller> registerSellerAccountHandler(@RequestBody Seller seller) {
 		return new ResponseEntity<>(sellerService.addSeller(seller), HttpStatus.CREATED);
 	}
+	
 	
 	@PostMapping(value = "/login/seller", consumes = "application/json")
 	public ResponseEntity<UserSession> loginSellerHandler(@RequestBody SellerDTO seller){

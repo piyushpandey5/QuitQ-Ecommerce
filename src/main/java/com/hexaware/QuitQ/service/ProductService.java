@@ -15,5 +15,5 @@ public interface ProductService {
 	public List<Product> getAllProductsOfSeller(int id);
 	public List<Product> getProductsOfCategory(CategoryEnum ce);
 	public List<Product> getProductsOfStatus(ProductStatus state);
-
+	public Product addProductWithSeller(Product product, int sellerId);
 }
