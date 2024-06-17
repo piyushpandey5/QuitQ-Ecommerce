@@ -1,0 +1,4 @@
+.carousel-image {
+    width: auto; /* Set width to fill the carousel */
+    height: 2cm; /* Maintain aspect ratio */
+}

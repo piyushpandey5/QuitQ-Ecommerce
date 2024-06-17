@@ -1,0 +1,155 @@
+/* .product-description-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .product-card {
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  
+  .product-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .details {
+    padding: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+   */
+
+
+   /* productDescription.css */
+
+.pt-16 {
+  padding-top: 4rem; /* 16px * 4 = 64px */
+}
+
+.lg\:pt-20 {
+  padding-top: 5rem; /* 20px * 4 = 80px */
+}
+
+.pb-12 {
+  padding-bottom: 3rem; /* 12px * 4 = 48px */
+}
+
+.lg\:py-32 {
+  padding-top: 8rem; /* 32px * 4 = 128px */
+  padding-bottom: 8rem; /* 32px * 4 = 128px */
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.lg\:flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+  padding: 80px;
+  position:relative;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.mb-8 {
+  margin-bottom: 2rem; /* 8px * 4 = 32px */
+}
+
+.lg\:mb-0 {
+  margin-bottom: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.lg\:text-left {
+  text-align: left;
+}
+
+.text-26 {
+  font-size: 26px;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem; /* 2px * 4 = 8px */
+}
+
+.max-w-450 {
+  max-width: 450px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-x1 {
+  font-size: 1.25rem; /* 16px * 1.25 = 20px */
+}
+
+.text-red-500 {
+  color: #dc2626; /* Adjust color as needed */
+}
+
+.text-black {
+  color: #000; /* Adjust color as needed */
+}
+
+.py-4 {
+  padding-top: 1rem; /* 4px * 4 = 16px */
+  padding-bottom: 1rem; /* 4px * 4 = 16px */
+}
+
+.px-8 {
+  padding-left: 2rem; /* 8px * 4 = 32px */
+  padding-right: 2rem; /* 8px * 4 = 32px */
+}
+
+.bg-black {
+  background-color: #000;
+}
+
+.text-white {
+  color: #fff;
+}
+
+/* Additional styles for the button */
+button {
+  border: none;
+  cursor: pointer;
+}
+
